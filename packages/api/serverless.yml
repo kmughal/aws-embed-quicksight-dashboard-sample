@@ -1,0 +1,30 @@
+service: quick-sight
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: ${env:LAMBDA_REGION}
+plugins:
+  - serverless-dotenv-plugin
+
+functions:
+  getQuickSightUrl:
+    handler: src/index.getQuickSightUrl
+    environment:
+      ASSUME_ROLE: ${env:ASSUME_ROLE}
+      ROLE_SESSION_NAME: ${env:ROLE_SESSION_NAME}
+      DASHBOARD_ID: ${env:DASHBOARD_ID}
+      AWS_ACCOUNT_ID: ${env:AWS_ACCOUNT_ID}
+      LAMBDA_REGION: ${env:LAMBDA_REGION}
+      USER_ARN: ${env:USER_ARN}
+      USER_NAME: ${env:USER_NAME}
+      SESSION_LIFE_TIME_IN_MINUTES: ${env:SESSION_LIFE_TIME_IN_MINUTES}
+    events:
+      - http:
+          path: apis/get-quick-sight-url
+          method: get
+          cors: true

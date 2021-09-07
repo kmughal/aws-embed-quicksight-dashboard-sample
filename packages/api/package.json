@@ -1,0 +1,16 @@
+{
+  "name": "getQuickSightUrl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless invoke local --function getQuickSightUrl --data '{\"user_name\" :\"ansio_test_123\"}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.973.0",
+    "serverless-dotenv-plugin": "^3.9.0"
+  }
+}

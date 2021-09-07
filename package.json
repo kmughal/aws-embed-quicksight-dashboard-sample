@@ -1,0 +1,12 @@
+{
+    "name": "epsilon-sales-promotion-workspace",
+    "private": true,
+    "workspaces": [
+      "packages/*"
+    ],
+    "scripts": {
+      "start:api": "yarn workspace getQuickSightUrl start",
+      "start:web": "yarn workspace web start",
+      "build:web": "yarn workspace web build"
+    }
+  }
